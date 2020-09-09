@@ -16,6 +16,8 @@ class UsersController < ApplicationController
     
 
     def show
+        redirect_if_not_logged_in
+        @user = User.find_by_id(params[:id])
     end
 
     private
@@ -23,7 +25,7 @@ class UsersController < ApplicationController
     def user_params
         params.require(:user).permit(:username, :email, :password)
     end
-       
+
 
 
 

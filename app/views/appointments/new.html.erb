@@ -1,0 +1,32 @@
+<h1>New Session</h1>
+
+<%= form_for(@appointment) do |f| %>
+
+    <%= f.label :client %>
+    <%= f.text_field :client %>
+    <br>
+    <br>
+
+    <%= f.label :appointment_time %>
+    <%= f.time_select :appointment_time %>
+    <br>
+    <br>
+
+    <%= f.label :duration %>
+    <%= f.time_select :duration %>
+    <br>
+    <br>
+
+    <%= f.label :price %>
+    <%= f.text_field :price %>
+    <br>
+    <br>
+
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+    <br>
+    <br>
+
+    <%= f.submit "Create Session"%>
+  
+<% end %>
