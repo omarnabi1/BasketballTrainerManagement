@@ -6,7 +6,6 @@ class CreateLocations < ActiveRecord::Migration[6.0]
       t.string :street_address
       t.string :state
       t.string :zipcode
-      t.string :business_name
       t.references :user, index: true
 
       t.timestamps
