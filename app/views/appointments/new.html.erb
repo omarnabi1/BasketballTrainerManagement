@@ -5,6 +5,7 @@
 
 <div>
   <%= f.fields_for :client, Client.new do |client_attributes|%>
+  <%= client_attributes.hidden_field :user_id, :value => current_user.id %>
   <h4>Client Information</h4>
   <li>
       <%= client_attributes.label :name, "Name:" %>
@@ -24,6 +25,7 @@
     <br>
 
     <%= f.fields_for :location, Location.new do |location_attributes|%>
+    <%= location_attributes.hidden_field :user_id, :value => current_user.id %>
     <h4>Location Information</h4>
     <li>
       <%= location_attributes.label :nickname, "Nickname:" %>

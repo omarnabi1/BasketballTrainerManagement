@@ -6,14 +6,14 @@ class ClientsController < ApplicationController
     end
     
     def create 
-        @client = Client.new
-    if @client.user = current_user
-        @client.save 
+        @client = current_user.Client.new(client_params)
+        client.user ||= current_user if client.new_record?
+    if @client.save 
             redirect_to clients_path
     else 
         render :new
     end
-    end
-
-
 end
+
+
+
