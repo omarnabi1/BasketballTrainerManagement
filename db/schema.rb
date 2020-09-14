@@ -16,11 +16,14 @@ ActiveRecord::Schema.define(version: 2020_09_08_212116) do
     t.datetime "appointment_time"
     t.integer "duration"
     t.float "price"
-    t.string "client_id"
-    t.string "location_id"
+    t.integer "location_id"
     t.integer "user_id"
+    t.integer "client_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["client_id"], name: "index_appointments_on_client_id"
+    t.index ["location_id"], name: "index_appointments_on_location_id"
+    t.index ["user_id"], name: "index_appointments_on_user_id"
   end
 
   create_table "clients", force: :cascade do |t|
@@ -53,4 +56,8 @@ ActiveRecord::Schema.define(version: 2020_09_08_212116) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "appointments", "clients"
+  add_foreign_key "appointments", "locations"
+  add_foreign_key "appointments", "users"
+  add_foreign_key "locations", "users"
 end

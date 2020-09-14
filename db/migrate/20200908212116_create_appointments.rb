@@ -4,11 +4,10 @@ class CreateAppointments < ActiveRecord::Migration[6.0]
       t.datetime :appointment_time
       t.integer :duration
       t.float :price
-      t.string :client_id
-      t.string :location_id
-      t.integer :user_id
+      t.belongs_to :location, foreign_key: true
+      t.belongs_to :user, foreign_key: true
+      t.belongs_to :client, foreign_key: true
 
-     
 
       t.timestamps
     end
