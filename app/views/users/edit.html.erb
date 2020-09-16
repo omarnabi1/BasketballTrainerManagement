@@ -1,0 +1,28 @@
+<br>
+<h1>Edit Your Account</h1>
+<br>
+
+<div>
+<ul>
+<%= form_for User.new do |f| %>
+
+   <li> 
+    <%=  f.label :username %>
+    <%=  f.text_field :username %>
+    </li>
+        <br>
+        <br>
+    <li>
+    <%=  f.label :email %>
+    <%=  f.email_field :email, required:true%>
+    </li>
+        <br>
+        <br>
+
+    <%=  f.submit "Save" %>
+
+    <%end%>
+</ul>
+</div>
+
+<p>User can edit profile here</p>

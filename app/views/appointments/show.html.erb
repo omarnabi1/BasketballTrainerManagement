@@ -1,1 +1,10 @@
-<h1>All Sessions</h1>
+ <br>
+ <h2>Session For <%=@appointment.client.name%></h2>
+<br>
+
+<h4><%=link_to @appointment.client.name, client_path%></h4>
+<h4><%=link_to @appointment.location.nickname, edit_appointment_path(@appointment)%> </h4>
+<h4><%=link_to @appointment.date, edit_appointment_path(@appointment)%> </h4>
+
+<br>
+ <%= link_to "Edit Hoop Session", edit_appointment_path(@appointment)%>

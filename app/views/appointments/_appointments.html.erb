@@ -1,18 +1,5 @@
- <br>
- <h1>Welcome <%=@user.username%></h1>
- <h5><%=@user.email%></h5>
-    <br>
-<h4> Upcoming Sessions <h4>
-    <br>
 <ul>
     <% current_user.appointments.each do |a|%>
       <li><%= link_to a.client.name, appointment_path(a) %> | <%= link_to a.date, appointment_path(a)%> | <%= link_to a.location.nickname, appointment_path(a)%> </li><br>
     <% end %>
 </ul>
-
-<br>
- <%= link_to "Edit User Account", edit_user_path(@user)%>
-
-
-
-

@@ -1,6 +1,4 @@
-<br>
-<h1>New Session</h1>
-<br>
+<h1>Edit Session With <%= @appointment.client.name%></h1>
 
 <%= form_for(@appointment) do |f| %>
 
@@ -74,7 +72,7 @@
         <br>
     <%= f.hidden_field :user_id, :value => current_user.id %>
 
-    <%= f.submit "Create Session"%>
+    <%= f.submit "Save"%>
 </div>    
 <ul> 
 <% end %>

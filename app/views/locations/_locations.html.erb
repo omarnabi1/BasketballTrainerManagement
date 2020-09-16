@@ -1,0 +1,5 @@
+<ul>
+    <% current_user.locations.each do |l|%>
+      <li><%= button_to l.nickname, locations_path(l) %></li> <br>
+    <% end %>
+</ul>

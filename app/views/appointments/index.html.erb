@@ -1,0 +1,12 @@
+     <br>
+ <%= index_display_header %>
+    <br>
+
+ <%= form_tag("/appointments", method: 'get') do %>
+    <%= label_tag(:q, "Search for:") %>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag("Search") %>
+<% end %>
+<br>
+
+ <%= render partial: "appointments", locals: {appointments: @appointments} %>
