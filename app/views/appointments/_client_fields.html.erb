@@ -1,0 +1,18 @@
+<%= f.fields_for :client, f.object.client || Client.new do |client_attributes|%>
+  <%= client_attributes.hidden_field :user_id, :value => current_user.id %>
+  <h5>Client Information</h5>
+  <li>
+      <%= client_attributes.label :name, "Name:" %>
+      <%= client_attributes.text_field :name, disabled: disabled %>
+    </li>
+      <br>
+  <li>  
+      <%= client_attributes.label :phone_number, "Number:" %>
+      <%= client_attributes.text_field :phone_number, disabled: disabled %>
+    </li>
+      <br>
+  <li>    
+      <%= client_attributes.label :email, "Email:" %>
+      <%= client_attributes.text_field :email, disabled: disabled %>
+    </li>
+  <% end %>

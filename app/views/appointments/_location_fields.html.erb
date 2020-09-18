@@ -1,0 +1,29 @@
+<%= f.fields_for :location, f.object.location || Location.new do |location_attributes|%>
+    <%= location_attributes.hidden_field :user_id, :value => current_user.id %>
+    <h5>Location Information</h5>
+    <li>
+        <%= location_attributes.label :nickname, "Nickname:" %>
+        <%= location_attributes.text_field :nickname, disabled: disabled %>
+    </li>
+        <br>
+    <li>  
+        <%= location_attributes.label :city, "City:" %>
+        <%= location_attributes.text_field :city, disabled: disabled %>
+    </li>
+        <br>
+    <li>    
+        <%= location_attributes.label :street_address, "Street Address:" %>
+        <%= location_attributes.text_field :street_address, disabled: disabled %>
+    </li>
+    <br>
+    <li>  
+        <%= location_attributes.label :state, "State:" %>
+        <%= location_attributes.text_field :state, disabled: disabled %>
+    </li>
+        <br>
+    <li>  
+        <%= location_attributes.label :zipcode, "Zipcode:" %>
+        <%= location_attributes.text_field :zipcode, disabled: disabled %>
+    </li>
+        <br>
+<% end %>

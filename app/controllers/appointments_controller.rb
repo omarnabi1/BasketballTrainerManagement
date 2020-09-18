@@ -6,7 +6,11 @@ class AppointmentsController < ApplicationController
     def new
         if params[:user_id] && @user = User.find_by_id(params[:user_id])
             @appointment = @user.appointments.build
-        else 
+        elsif params[:client_id] && @client = Client.find_by_id(params[:client_id])
+            @appointment = @client.appointments.build
+        elsif params[:location_id] && @location = Location.find_by_id(params[:location_id])
+            @appointment = @location.appointments.build
+        else
             @appointment = Appointment.new
         end
     end
@@ -15,7 +19,14 @@ class AppointmentsController < ApplicationController
     def index
         if params[:user_id] && @user = User.find_by_id(params[:user_id])
             @appointments = @user.appointments.alpha
+        elsif params[:client_id] && @client = Client.find_by_id(params[:client_id])
+            @appointments = @client.appointments.order(:date)
+        elsif params[:location_id] && @location = Location.find_by_id(params[:location_id])
+            @appointments = @location.appointments
+        else
+            @appointments = current_user.appointments
         end
+        
     end
 
     
