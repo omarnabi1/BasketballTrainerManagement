@@ -1,5 +1,5 @@
      <br>
- <%= index_display_header %>
+<%= index_display_header %>
     <br>
 
  <%= form_tag("/appointments", method: 'get') do %>
@@ -12,11 +12,14 @@
  <%= render partial: "appointments", locals: {appointments: @appointments} %>
 
 <% if @client%>
+   
+   <%=link_to "New Session with #{@client.name}", new_client_appointment_path(@client.name)%>
 
-   <%=link_to "New Session with #{@client.name}", new_client_appointment_path(@client)%>
 <%elsif @location%>
-
+   
    <%=link_to "New Session at #{@location.nickname}", new_location_appointment_path(@location)%>
 
-
 <%end%>
+
+
+

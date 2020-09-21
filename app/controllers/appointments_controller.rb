@@ -8,6 +8,7 @@ class AppointmentsController < ApplicationController
             @appointment = @user.appointments.build
         elsif params[:client_id] && @client = Client.find_by_id(params[:client_id])
             @appointment = @client.appointments.build
+            binding.pry
         elsif params[:location_id] && @location = Location.find_by_id(params[:location_id])
             @appointment = @location.appointments.build
         else
@@ -47,6 +48,21 @@ class AppointmentsController < ApplicationController
     def show
         @appointment = Appointment.find_by_id(params[:id])
     end
+
+    def update 
+        @appointment = Appointment.find_by_id(params[:id])
+        redirect_to to appointments_path if !@appointment || @appointment.user != current_user
+        if @appointment.update(appointment_params)
+            redirect_to appointment_path(@appointment)
+        else
+            render :edit
+        end
+    end
+
+    def destroy 
+        @appointment.destroy 
+        redirect_to appointments_path
+      end
 
     private
 

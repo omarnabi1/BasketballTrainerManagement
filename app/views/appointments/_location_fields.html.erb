@@ -1,6 +1,12 @@
 <%= f.fields_for :location, f.object.location || Location.new do |location_attributes|%>
     <%= location_attributes.hidden_field :user_id, :value => current_user.id %>
     <h5>Location Information</h5>
+    <br>
+  <h6> Previous Location </h6>
+      <%= collection_select(:appointment, :location_id, Location.all, :id, :nickname,) %>
+      <br>
+      <br>
+      <h6>New Location</h6>
     <li>
         <%= location_attributes.label :nickname, "Nickname:" %>
         <%= location_attributes.text_field :nickname, disabled: disabled %>

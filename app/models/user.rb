@@ -7,7 +7,6 @@ end
 
 
 
-
 #'/users'
 
 #'/users/:id/appointments'

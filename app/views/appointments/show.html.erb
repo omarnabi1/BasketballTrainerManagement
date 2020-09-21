@@ -2,9 +2,23 @@
  <h2>Session For <%=@appointment.client.name%></h2>
 <br>
 
-<h4><%=link_to @appointment.client.name, client_path%></h4>
-<h4><%=link_to @appointment.location.nickname, location_path%> </h4>
-<h4><%=link_to @appointment.date, edit_appointment_path(@appointment)%> </h4>
+
+
+<h5><%=link_to @appointment.client.name, client_path%></h5>
+<h5><%=link_to @appointment.location.nickname, location_path%> </h5>
+<h5><%=link_to @appointment.date, edit_appointment_path(@appointment)%> </h5>
+<h5><%=link_to @appointment.price, edit_appointment_path(@appointment)%> </h5>
 
 <br>
  <%= link_to "Edit Hoop Session", edit_appointment_path(@appointment)%>
+<br>
+ <body>
+ <br>
+ <p>This will show the client all this specefic session information.</p>
+ </body>
+ <ol>
+ <li>Health Stats</li>
+ <li>Pictures and Vidoes</li>
+ <li>Notes</li>
+ <li>goals</li>
+

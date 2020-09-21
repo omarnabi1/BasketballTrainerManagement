@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   #login route 1. to display the log in 2. to process the log in
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
+  get '/auth/facebook/callback' => 'sessions#create'
   
   
   #logout route

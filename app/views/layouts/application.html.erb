@@ -20,7 +20,7 @@
 
     <div>
       <%if logged_in?%>
-      <%= link_to 'Home', users_path %> |
+      <%= link_to 'Home', user_path(:user_id) %> |
       <%= link_to 'New Session', new_appointment_path %> |
       <%= link_to 'View Sessions', appointments_path %> |
       <%= link_to "Logout", logout_path, method: "delete" %> 
@@ -29,7 +29,8 @@
 
       <%else%>
       <%= link_to 'Sign Up', signup_path %> |
-      <%= link_to 'Log In', login_path %>
+      <%= link_to 'Sign In', login_path %> |
+      <%= link_to 'Sign In with Facebook', '/auth/facebook' %>
       <% end %>
 
       </div>

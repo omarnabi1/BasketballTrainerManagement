@@ -1,7 +1,7 @@
 <%= form_for(@appointment) do |f| %>
 
 <ul>
-<div>
+<body>
     <%= render 'client_fields', f: f, disabled: params[:action] == 'new' && params[:client_id] %>
     <br>
 
@@ -10,22 +10,22 @@
     <h5>Session Information</h5>
     <li>
         <%= f.label :time %>
-        <%= f.time_select :time %>
+        <%= f.time_field :time %>
     </li>
         <br>
     <li>
         <%= f.label :date %>
-        <%= f.date_select :date %>    
+        <%= f.date_field :date %>    
     </li>
         <br>
     <li>
         <%= f.label :price %>
-        <%= f.text_field :price %>
+        <%= f.number_field :price %>
     </li>
         <br>
     <%= f.hidden_field :user_id, :value => current_user.id %>
 
     <%= f.submit %>
-</div>    
+</body>    
 <ul> 
 <% end %>

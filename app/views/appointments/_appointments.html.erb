@@ -1,5 +1,5 @@
 <ul>
     <% @appointments.each do |a|%>
-      <li><%= link_to a.client.name, client_appointments_path(a.client) %> | <%= link_to a.date, appointment_path(a)%> | <%= link_to a.location.nickname, location_appointments_path(a.location)%> </li><br>
+      <li><%= link_to a.client.name, client_appointments_path(a.client) %> | <%= link_to a.location.nickname, location_appointments_path(a.location)%> | <%= link_to a.date, appointment_path(a)%></li><br>
     <% end %>
 </ul>

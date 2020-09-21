@@ -1,9 +1,23 @@
 <br>
-<h1>Client Information</h1>
+<h1>Client Information For The Trainer</h1>
 
-#user can make new appointment with this client from here
-<br>
-#user can view past appointments with client from here
-<br>
-#form should auto populate client Information
+<body>
+<p>This will show the trainer stats on the clients past appointments</p>
+<p>This will show the trainer health stats on the client</p>
+    <ol>
+    <li> Health Stats </li>
+    <li> Appointment Stats </li>
+    <li> Goals for Client </li>
+    <li> Current Training Program </li>
+    </ol>
+</body>
 
+<% if @client%>
+   
+   <%=link_to "New Session with #{@client.name}", new_client_appointment_path(@client.name)%>
+
+<%elsif @location%>
+   
+   <%=link_to "New Session at #{@location.nickname}", new_location_appointment_path(@location)%>
+
+<%end%>

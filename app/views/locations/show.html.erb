@@ -1,7 +1,21 @@
 <br>
-<h1>Location Information<h1>
+<h1>Location Information</h1>
 
 <br>
-<p>User can make new appointment for this location here
-User can view Location info here (address, clients)</p>
 
+<body>
+<p>This will show the trainer Information on this Location</p>
+<p>The trainer will be able to book a new session for a client at this location</p>
+<p>The trainer will be able to view a map and contact info for this location</p>
+<p>The trainer will be able to view past appointments at this location</p>
+</body>
+
+<% if @location%>
+   
+   <%=link_to "New Session with #{@client.name}", new_client_appointment_path(@client.name)%>
+
+<%elsif @location%>
+   
+   <%=link_to "New Session at #{@location.nickname}", new_location_appointment_path(@location)%>
+
+<%end%>
