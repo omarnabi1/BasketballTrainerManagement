@@ -1,13 +1,14 @@
-     <br>
-<%= index_display_header %>
-    <br>
+   <br>
+ <h2>Upcomming Sessions</h2>
+   <br>
+
 
  <%= form_tag("/appointments", method: 'get') do %>
     <%= label_tag(:q, "Search for:") %>
     <%= text_field_tag(:q) %>
     <%= submit_tag("Search") %>
 <% end %>
-<br>
+   <br>
 
  <%= render partial: "appointments", locals: {appointments: @appointments} %>
 

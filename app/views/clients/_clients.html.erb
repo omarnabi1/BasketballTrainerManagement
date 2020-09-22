@@ -1,5 +1,7 @@
 <ul>
-    <% current_user.clients.each do |c|%>
-      <li><%= button_to c.name, clients_path(c) %></li> <br>
+    <% @clients.each do |c|%>
+      <li><%= link_to c.appointments.name, client_appointments_path(c.appointments) %> 
     <% end %>
 </ul>
+
+
