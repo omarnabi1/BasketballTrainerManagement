@@ -1,6 +1,6 @@
 <ul>
     <% @clients.each do |c|%>
-      <li><%= link_to c.appointments.name, client_appointments_path(c.appointments) %> 
+      <li><%= link_to c.name, client_path(c) %> </li><br>
     <% end %>
 </ul>
 
