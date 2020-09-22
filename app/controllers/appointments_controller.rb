@@ -8,7 +8,6 @@ class AppointmentsController < ApplicationController
             @appointment = @user.appointments.build
         elsif params[:client_id] && @client = Client.find_by_id(params[:client_id])
             @appointment = @client.appointments.build
-            binding.pry
         elsif params[:location_id] && @location = Location.find_by_id(params[:location_id])
             @appointment = @location.appointments.build
         else
@@ -60,7 +59,7 @@ class AppointmentsController < ApplicationController
     end
 
     def destroy 
-        @appointment.destroy 
+        @appointment = Appointment.destroy(params[:id])
         redirect_to appointments_path
       end
 

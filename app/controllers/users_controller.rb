@@ -20,6 +20,18 @@ class UsersController < ApplicationController
         @user = User.find_by_id(params[:id])
     end
 
+    def update
+        @user = User.find_by_id(params[:id])
+        @user.update(username: params[:user][:username],
+        email: params[:user][:email])
+        @user.save
+        redirect_to user_path(@user)
+    end
+
+    def index
+        @user = User.find_by_id(params[:id]) 
+    end
+
     private
 
     def user_params

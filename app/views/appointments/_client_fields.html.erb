@@ -2,11 +2,7 @@
   <%= client_attributes.hidden_field :user_id, :value => current_user.id %>
   <h5>Client Information</h5>
   <br>
-  <h6> Previous Client </h6>
-      <%= collection_select(:appointment, :client_id, Client.all, :id, :name, include_blank: "New") %>
-      <br>
-      <br>
-      <h6>New Client</h6>
+
   <li>
       <%= client_attributes.label :name, "Name:" %>
       <%= client_attributes.text_field :name, disabled: disabled %>
