@@ -1,20 +1,20 @@
 <%= f.fields_for :client, f.object.client || Client.new do |client_attributes|%>
-  <%= client_attributes.hidden_field :user_id, :value => current_user.id %>
+  <%= client_attributes.hidden_field :user_id, :value => current_user.id, disabled: disabled %>
   <h5>Client Information</h5>
   <br>
 
   <li>
       <%= client_attributes.label :name, "Name:" %>
-      <%= client_attributes.text_field :name, disabled: disabled %>
+      <%= client_attributes.text_field :name %>
     </li>
       <br>
   <li>  
       <%= client_attributes.label :phone_number, "Number:" %>
-      <%= client_attributes.telephone_field :phone_number, disabled: disabled %>
+      <%= client_attributes.telephone_field :phone_number %>
     </li>
       <br>
   <li>    
       <%= client_attributes.label :email, "Email:" %>
-      <%= client_attributes.email_field :email, disabled: disabled %>
+      <%= client_attributes.email_field :email %>
     </li>
   <% end %>

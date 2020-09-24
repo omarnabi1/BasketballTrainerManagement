@@ -1,5 +1,5 @@
 <%= f.fields_for :location, f.object.location || Location.new do |location_attributes|%>
-    <%= location_attributes.hidden_field :user_id, :value => current_user.id %>
+    <%= location_attributes.hidden_field :user_id, :value => current_user.id, disabled: disabled%>
     <h5>Location Information</h5>
     <br>
 

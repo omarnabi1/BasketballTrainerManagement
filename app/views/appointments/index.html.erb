@@ -14,7 +14,7 @@
 
 <% if @client%>
    
-   <%=link_to "New Session with #{@client.name}", new_client_appointment_path(@client.name)%>
+   <%=link_to "New Session with #{@client.name}", new_client_appointment_path(@client)%>
 
 <%elsif @location%>
    

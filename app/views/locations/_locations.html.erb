@@ -1,5 +1,5 @@
 <ul>
-    <% current_user.locations.each do |l|%>
+    <% locations.each do |l|%>
       <li><%= link_to l.nickname, location_path(l) %></li><br>
     <% end %>
 </ul>

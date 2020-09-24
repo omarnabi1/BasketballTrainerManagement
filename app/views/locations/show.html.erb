@@ -10,12 +10,7 @@
 <p>The trainer will be able to view past appointments at this location</p>
 </body>
 
-<% if @location%>
-   
-   <%=link_to "New Session with #{@client.name}", new_client_appointment_path(@client.name)%>
 
-<%elsif @location%>
-   
-   <%=link_to "New Session at #{@location.nickname}", new_location_appointment_path(@location)%>
-
-<%end%>
+<%=link_to "New Session at #{@location.nickname}", new_location_appointment_path(@location)%>
+|
+<%= link_to "Edit Location", edit_location_path(@location) %>

@@ -14,12 +14,24 @@ class ClientsController < ApplicationController
     end
     
     def create 
-        @client = current_user.Client.new(client_params)
-        client.user ||= current_user if client.new_record?
+        @client = current_user.clients.build(client_params)
         if @client.save 
             redirect_to clients_path
         else 
-        render :new
+            render :new
+        end
+    end
+
+    def edit
+        @client = current_user.clients.find(params[:id])
+    end
+
+    def update
+        @client = current_user.clients.find(params[:id])
+        if @client.update(client_params)
+            redirect_to @client
+        else
+            render :edit
         end
     end
 
@@ -31,7 +43,7 @@ class ClientsController < ApplicationController
     private
 
     def client_params
-        params.require(:client).permit(:content,:appointment_id)
+        params.require(:client).permit(:user_id, :name, :phone_number, :email)
     end
 
 

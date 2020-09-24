@@ -22,9 +22,8 @@ class UsersController < ApplicationController
 
     def update
         @user = User.find_by_id(params[:id])
-        @user.update(username: params[:user][:username],
+        @user.update_columns(username: params[:user][:username],
         email: params[:user][:email])
-        @user.save
         redirect_to user_path(@user)
     end
 
@@ -33,9 +32,12 @@ class UsersController < ApplicationController
     end
 
     def destroy 
-        @user = User.destroy(params[:id])
-        redirect_to users_path
+        @user = current_user.destroy
+        session.clear
+        redirect_to root_path
     end
+
+  
 
     private
 

@@ -6,9 +6,9 @@ class AppointmentsController < ApplicationController
     def new
         if params[:user_id] && @user = User.find_by_id(params[:user_id])
             @appointment = @user.appointments.build
-        elsif params[:client_id] && @client = Client.find_by_id(params[:client_id])
+        elsif params[:client_id] && @client = current_user.clients.find_by(id: params[:client_id])
             @appointment = @client.appointments.build
-        elsif params[:location_id] && @location = Location.find_by_id(params[:location_id])
+        elsif params[:location_id] && @location = current_user.locations.find_by(id: params[:location_id])
             @appointment = @location.appointments.build
         else
             @appointment = Appointment.new
@@ -24,7 +24,7 @@ class AppointmentsController < ApplicationController
         elsif params[:location_id] && @location = Location.find_by_id(params[:location_id])
             @appointments = @location.appointments
         else
-            @appointments = current_user.appointments
+            @appointments = current_user.appointments.alpha
         end
         
     end
@@ -66,7 +66,7 @@ class AppointmentsController < ApplicationController
     private
 
     def appointment_params
-        params.require(:appointment).permit(:user_id,:time,:date,:price, client_attributes:[:user_id, :name, :phone_number, :email], location_attributes:[:user_id, :nickname, :city, :street_address, :state, :zipcode])
+        params.require(:appointment).permit(:user_id,:time,:date,:price, client_attributes:[:user_id, :name, :phone_number, :email, :id], location_attributes:[:user_id, :nickname, :city, :street_address, :state, :zipcode, :id])
     end
 
 end

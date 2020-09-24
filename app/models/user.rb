@@ -1,7 +1,7 @@
 class User < ApplicationRecord
-has_many :clients  
-has_many :appointments 
-has_many :locations
+has_many :clients, dependent: :destroy  
+has_many :appointments, dependent: :destroy  
+has_many :locations, dependent: :destroy  
 has_secure_password
 end
 

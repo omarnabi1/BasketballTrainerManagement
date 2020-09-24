@@ -1,0 +1,26 @@
+<%= form_for @client do |client| %>
+  
+  <%= client.hidden_field :user_id, :value => current_user.id %>
+  <h5>Client Information</h5>
+  <br>
+
+  <li>
+      <%= client.label :name, "Name:" %>
+      <%= client.text_field :name %>
+      <%= error_messages_for(client.object, :name)%>
+  </li>
+      <br>
+  <li>  
+      <%= client.label :phone_number, "Number:" %>
+      <%= client.telephone_field :phone_number %>
+      <%= error_messages_for(client.object, :phone_number)%>
+  </li>
+      <br>
+  <li>    
+      <%= client.label :email, "Email:" %>
+      <%= client.email_field :email %>
+      <%= error_messages_for(client.object, :email)%>
+  </li>
+
+  <%= client.submit %>
+<% end %>

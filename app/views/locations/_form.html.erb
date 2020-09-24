@@ -1,0 +1,37 @@
+<%= form_for @location do |location| %>
+    <h5>Location Information</h5>
+    <br>
+
+    <li>
+        <%= location.label :nickname, "Nickname:" %>
+        <%= location.text_field :nickname %>
+        <%= error_messages_for(location.object, :nickname)%>
+    </li>
+        <br>
+    <li>  
+        <%= location.label :city, "City:" %>
+        <%= location.text_field :city %>
+        <%= error_messages_for(location.object, :city)%>
+    </li>
+        <br>
+    <li>    
+        <%= location.label :street_address, "Street Address:" %>
+        <%= location.text_field :street_address %>
+        <%= error_messages_for(location.object, :street_address)%>
+    </li>
+    <br>
+    <li>  
+        <%= location.label :state, "State:" %>
+        <%= location.text_field :state %>
+        <%= error_messages_for(location.object, :state)%>
+    </li>
+        <br>
+    <li>  
+        <%= location.label :zipcode, "Zipcode:" %>
+        <%= location.text_field :zipcode %>
+        <%= error_messages_for(location.object, :zipcode)%>
+    </li>
+        <br>
+
+    <%= location.submit %>
+<% end %>

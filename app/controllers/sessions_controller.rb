@@ -20,6 +20,7 @@ class SessionsController < ApplicationController
       def login_with_oauth
         @user = User.find_or_create_by(uid: auth['uid']) do |u|
             u.email = auth['info']['email']
+            u.username = auth['info']['name']
         end
         if @user.save(validate: false)
             session[:user_id] = @user.id
