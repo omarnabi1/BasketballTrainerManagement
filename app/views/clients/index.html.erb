@@ -1,11 +1,7 @@
 <br>
 <h1>All Clients</h1>
 <br>
- <%= form_tag("/clients", method: 'get') do %>
-    <%= label_tag(:q, "Search for:") %>
-    <%= text_field_tag(:q) %>
-    <%= submit_tag("Search") %>
-<% end %>
+
 <br>
 
  <%= render partial: "clients", locals: {clients: @clients} %>
